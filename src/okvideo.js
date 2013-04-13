@@ -182,7 +182,9 @@ function vimeoPlayerReady() {
   player = $f(iframe);
 
   // hide player until Vimeo hides controls...
-  window.setTimeout($('#okplayer').css('visibility', 'visible'), 2000);
+  window.setTimeout(function(){
+    $('#okplayer').css('visibility', 'visible');
+  }, 2000);
 
   player.addEvent('ready', function () {
     player.api('play');
@@ -272,10 +274,10 @@ OKEvents = {
       OKEvents.utils.isFunction(options.onPlay) && options.onPlay();
     },
     onPause: function(){
-      OKEvents.utils.isFunction(options.onPlay) && options.onPause();
+      OKEvents.utils.isFunction(options.onPause) && options.onPause();
     },
     onFinish: function(){
-      OKEvents.utils.isFunction(options.onPlay) && options.onFinish();
+      OKEvents.utils.isFunction(options.onFinish) && options.onFinish();
     }
   },
   utils: {
